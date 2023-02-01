@@ -1,0 +1,54 @@
+---
+title: "47987_MY461_Week2"
+author: '47987'
+date: "2023-02-01"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Logistics
+
+Downloading the appropriate libraries:
+```{r}
+install.packages("igraph")
+install.packages("igraphdata")
+install.packages("tidygraph")
+library(igraph)
+library(igraphdata)
+library(tidygraph)
+```
+
+Feeding in the data:
+```{r}
+
+```
+
+```{r}
+g1 <- make_graph(edges = c("Aishat", "Tessa",
+                           "Divine", "Baba",
+                           "Elijah", "Alina",
+                           "Fanuel", "Alex",
+                           "Isaac", "Alex",
+                           "Alina", "Wayne",
+                           "Ebenezer", "Divine",
+                           "Nadine", "Isaac"
+                           "Alex", "Nadine", "Aishat", "Tessa"
+                           
+                           ),
+                 directed = FALSE)
+
+print(g1)
+```
+
+```{r}
+plot.igraph(g1)
+```
+
+```{r}
+
+```
+
+
