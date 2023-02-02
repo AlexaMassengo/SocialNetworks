@@ -589,12 +589,24 @@ E(g1)$weight = 0.01
 LO = layout_with_fr(g1)
 plot(g1, layout=LO, vertex.size=5, vertex.label="")
 ```
-Now that the network is decluttered, it is easier 
+Now that the network is decluttered, it is easier to see the links between these party attendees. The host is more obvious as they have the most edges connected to them. You can see that some people do not have ties to others, and some friendship circles are interconnected. There are 2 vertices that are close friends with eachother. Also, there is a case in the top right corner of somebody being close to a few people but they clearly have a preference for one person that also noted them down as their closest friend - hence the loop that occurs. 
+
+The thing that is not anticipated is the host noting themselves as their closest friend, which causes another loop. This slightly throws off the analysis, and in future research it maybe should not be an option to name yourself.
 
 ```{r}
-
+gorder(g1)
 ```
 
 ```{r}
-
+gsize(g1)
 ```
+
+```{r}
+mean(degree(g1))
+```
+The average degree is 1.906977.
+
+```{r}
+diameter(g1)
+```
+The length of the longest geodesic (i.e., the longest shortest path) is 0.13.
