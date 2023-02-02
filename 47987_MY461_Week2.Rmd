@@ -13,18 +13,12 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Downloading the appropriate libraries:
 ```{r}
-install.packages("igraph")
-install.packages("igraphdata")
-install.packages("tidygraph")
 library(igraph)
 library(igraphdata)
 library(tidygraph)
 ```
 
-Feeding in the data:
-```{r}
-
-```
+This data consists of an edgelist made from an Excel spreadsheet containing people that were invited to a houseparty to celebrate the 25th birthday of the host. The columns consist of the: name of the individuals, perceived gender, (attending) status and their closest connection to the host. The latter is what can be seen below as an edgelist.
 
 ```{r}
 g1 <- make_graph(edges = c("Aaron","Misaal",
@@ -559,17 +553,6 @@ g1 <- set_vertex_attr(graph = g1,
 print(g1) 
 ```
 This means that the network is not directed but it is named. It is a two-mode, bipartite network with 172 number of vertices and 164 edges. The names and perceived gender are vertex-level attributes, whereas status is an edge-level attribute.
-
-```{r}
-size.of.vertices <- degree(g1, mode = "in")/2
-width.of.edges <- E(g1)$names/5
-plot.igraph(g1, 
-            vertex.size = size.of.vertices, 
-            edge.width = width.of.edges, 
-            edge.arrow.size = 0.4, 
-            vertex.label.cex = 0.5
-            )
-```
 
 ```{r}
 V(g1)$color <- V(g1)$perceived_gender
